@@ -1,30 +1,22 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() => runApp(MaterialApp(
       home: Film(),
-    )); //MaterialApp
+    ));
 
-// ignore: use_key_in_widget_constructors
 class Film extends StatefulWidget {
   @override
   _FilmState createState() => _FilmState();
 }
 
 class _FilmState extends State<Film> {
+  get onPressed => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'PATHE',
-          style: TextStyle(
-            color: Colors.purple,
-            letterSpacing: 2.0,
-            fontSize: 25.0,
-          ), //textstyle
-        ), //TEXT
         centerTitle: true,
         backgroundColor: Colors.white,
         leading: GestureDetector(
@@ -32,18 +24,12 @@ class _FilmState extends State<Film> {
             /* Write listener code here */
           },
           child: Icon(
-            Icons.menu, // add custom icons also
-            color: Colors.cyan,
+            Icons.arrow_back, // add custom icons also
+            color: Colors.purple,
           ), //icon
         ), //gesture
-        actions: <Widget>[
-          //Padding  
-           //Padding  
-           //child
-               //gesture
-               //Padding
-        ], //<Widget>
       ), //AppBar
+      
       body: SingleChildScrollView(
         child: Center(       
           child: Container(
@@ -60,286 +46,233 @@ class _FilmState extends State<Film> {
               ],
             )),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                 //container
                 Container(
-                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ), //box
-                  margin: EdgeInsets.all(30),
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly, //toul
-                    crossAxisAlignment: CrossAxisAlignment.start, //3ordh
+                  ),
+                  child: Column(
                     children: <Widget>[
                       Container(
-                        
-                        height: 300,
-                        width: 300,
+                        width: MediaQuery.of(context).size.width,
                         child: Image.asset('assets/images/4.jpg'),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                        crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                        children: <Widget>[
-                         
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                            crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                            children: <Widget>[
-                              Text(
-                                'RON DEBLOQUE/RONS GONE',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  letterSpacing: 2.0,
-                                  fontSize: 20.0,
-                                ), //textstyle
-                              ), //text
-                              SizedBox(width: 260.0),
-                              Container(
-                                color: Colors.white,
-                                child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      'Réservation',
-                                      style: TextStyle(
-                                        color: Colors.purple,
-                                        letterSpacing: 2.0,
-                                      ), //textstyle
-                                    ), //text
-                                ), 
-                              )
-                            ],
-                          ),    
-                          SizedBox(height: 40.0),
-                          // ignore: sized_box_for_whitespace
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                          crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
+                      Container(
+                        margin: EdgeInsets.all(8.0),
+                        child: Column(
                           children: <Widget>[
                             Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                              crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                              children: <Widget>[
-                                Text(
-                                '106 mins| Classfication A CONFIRMER ',
-                                  style: TextStyle(
-                                    color: Colors.purple,
-                                    letterSpacing: 2.0,
-                                    fontSize: 20.0,
-                                  ), //textstyle
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width * 0.68,
+                                      child: Text(
+                                        "RON DEBLOQUE / RON'S GONE",
+                                        style: TextStyle(
+                                          color: Colors.purple,
+                                          fontSize: 16.0,
+                                        ), //textstyle
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: MediaQuery.of(context).size.width * 0.001),
+                                   Container(
+                                      child: Icon(MdiIcons.pencil, size: 30,)
+                                    ),
+                                  ],
                                 ),
-                                
-                                
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width * 0.68,
+                                      child: Text(
+                                        "106 mins | Classification A CONFIRMER | Adventure",
+                                        style: TextStyle(
+                                          color: Colors.purple,
+                                          fontSize: 16.0,
+                                        ), //textstyle
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: MediaQuery.of(context).size.width * 0.001),
+                                   
+                                  ],
+                                ),
                               ],
-                            ),   //text
-                            SizedBox(width: 20.0),
-                            Container(
-                              color: Colors.white,
-                              child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Payement',
-                                    style: TextStyle(
-                                      color: Colors.purple,
-                                      letterSpacing: 2.0,
-                                    
-                                    ), //textstyle
-                                    
-                                  ),
-                                ),  
-                              ), 
-                            ],
-                          ),  
-                        ], //widget
-                      ), //Column
-                    ], //widget
+                            ),
+                          ],
+                        ),
+                      ), 
+                    ], 
                   ), //row
                 ), //container
                 Container(
-                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.width*0.68,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ), //box
-                  margin: EdgeInsets.all(30),
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly, //toul
-                    crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                    children: <Widget>[
-                      
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                        crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                        children: <Widget>[
-                          Text(
-                            'Realisé par Alessandro Carloni , Jean-philippe Vine | avec Alexis Denisof , Olivia colman , Jack Dylan Graze'
-                            ,
-                            style: TextStyle(
+                  margin: EdgeInsets.all(20),
+                  child:Container(
+                    margin: EdgeInsets.all(12.0),
+                    child: Text(
+                              'Realisé par Alessandro Carloni , Jean philippe Vine | Avec Alexis Denisof , Olivia Colman , Jack Dylan Grazer , Zack Galifiankis, Rob Delaney , Marcus Scribner, Bentley Kalu , Thomas Barbusca , Ava la histoire de Barney , un collégien tout ce que il y a de plus normal , et de Ron , une prouesse technologique connectée capable de marcher et de parler , et conçue pour etre son meilleur ami. les dysfonctionnements de Ron à la ère des réseaux sociaux',
+                              style: TextStyle(
                               color: Colors.purple,
-                              letterSpacing: 2.0,
-                              fontSize: 20.0,
-                            ), //textstyle
-                          ), //text
-                          SizedBox(height: 20.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                            crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                            children: <Widget>[
-                              Text(
-                                'Zach Galifianakis, Rob Delaney, Marcus Scribner Bentley Kalu , Thomas barbusca , Ava la histoire de barney , un collégien ',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                  letterSpacing: 2.0,
-                                  fontSize: 20.0,
-                                ), //textstyle
-                              ), //text
-                              
-                            ],
-                          ), 
-                          SizedBox(height: 20.0),
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                          crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                          children: <Widget>[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                              crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                              children: <Widget>[
-                                Text(
-                                'tout ce que il y a de plus normal et de ron , une prouesse technologique connectée capable de marcher et de parler, et conçue pour etre son meilleur ami.',
-                                  style: TextStyle(
-                                    color: Colors.purple,
-                                    letterSpacing: 2.0,
-                                    fontSize: 20.0,
-                                  ), //textstyle
-                                ),
-                                Text(
-                                'les dysfonctionnements de ron à le ére des réseaux sociaux entrainent le duo dans de incroyables péripéties au cours desquelles garçon et robot vont découvrir la notion de la amitié',
-                                  style: TextStyle(
-                                    color: Colors.purple,
-                                    letterSpacing: 2.0,
-                                    fontSize: 20.0,
-                                  ), //textstyle
-                                ),
-                              ],
-                            ),   //text
-                            SizedBox(width: 200.0),
-                           
-                            ],
+                              fontSize: 15.0,
+                            ), 
                           ),
-                        ], //widget
-                      ), //Column
-                    ], //widget
-                  ), //row
-                ), //container
-                  Container(
-                  alignment: Alignment.center,
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.width*0.23,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ), //box
-                  margin: EdgeInsets.all(30),
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly, //toul
-                    crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                    children: <Widget>[
+                  margin: EdgeInsets.all(20),
+                  child:Row(
+                    children: [
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ), //box
-                        height: 50,
-                        width: 50,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                        crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                        children: <Widget>[
-                          Text(
-                            'MONDAY',
-                            style: TextStyle(
-                              color: Colors.purple,
-                              letterSpacing: 2.0,
-                              fontSize: 40.0,
-                            ), //textstyle
-                          ), //text
-                          SizedBox(height: 20.0,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                            crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                            children: <Widget>[
-                              Text(
-                                '18H30',
-                                style: TextStyle(
+                        margin: EdgeInsets.all(30.0),
+                        child: Text(
+                                  'Monday',
+                                  style: TextStyle(
                                   color: Colors.purple,
-                                  letterSpacing: 2.0,
-                                  fontSize: 20.0,
-                                ), //textstyle
-                              ), //text
-                              SizedBox(width: 240.0),
-                             
-                            ],
-                          ),
-                          SizedBox(height: 20.0,),
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                          crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                          children: <Widget>[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly, //3ordh
-                              crossAxisAlignment: CrossAxisAlignment.start, //3ordh
-                      // ignore: prefer_const_literals_to_create_immutables
-                             
-                            ),   //text
-                            SizedBox(width: 40.0),
-                           
-                            ],
-                          ),
-                        ], //widget
-                      ), //Column
-                    ], //widget
-                  ), //row
-                ), //container
-                ], //widget
-            ),
-          ), //column
-        ), //container
-      ), //single
-      bottomNavigationBar: BottomNavigationBar(
-        //ignore: prefer_const_literals_to_create_immutables
-        items: [
-          
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            // ignore: deprecated_member_use
-            title: Text('favorite'),
+                                  fontSize: 21.0,
+                                ), 
+                              ),
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width*0.02),
+                      Container(
+                        margin: EdgeInsets.all(8.0),
+                        child: Text(
+                                  '18:30',
+                                  style: TextStyle(
+                                  color: Colors.purple,
+                                  fontSize: 21.0,
+                                ), 
+                              ),
+                      ),
+                       Container(
+                        margin: EdgeInsets.only(top: 8),
+                        child: RaisedButton(
+                          onPressed: () {  },
+                          child: Text('ADD EXPIRTATION TIME'),
+                          color: Colors.blue[100],
+                          textColor: Colors.purple,
+                        )
+                        
+                      )
+                    ],
+                  ),
+                 
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.width*0.40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ), //box
+                  margin: EdgeInsets.all(20),
+                  child:Row(
+                    children: [
+                     
+                      SizedBox(width: MediaQuery.of(context).size.width*0.02),
+                      Container(
+                        margin: EdgeInsets.all(8.0),
+                        child: Text(
+                                  'John Doe',
+                                  style: TextStyle(
+                                  color: Colors.purple,
+                                  fontSize: 16.0,
+                                  
+                                ), 
+                              ),
+                      ),
+                      Row(children: [
+                        Container(
+                                      width: MediaQuery.of(context).size.width * 0.48,
+                                      child: Text(
+                                        "Saturday 12:30",
+                                        style: TextStyle(
+                                          color: Colors.purple,
+                                          fontSize: 16.0,
+                                        ), //textstyle
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Icon(MdiIcons.checkCircle, size: 30,)
+                                    ),
 
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            title: Text('notifications'),
 
-            // ignore: deprecated_member_use
+                      ],)
+                       
+                    ],
+                  ),
+                 
+                )
+                
+                
+                
+              ],
+             ),
+              
+            
           ),
-        ], 
-      ),
+           
+        ),
+         
+      ), 
+      
+     floatingActionButton: FloatingActionButton(
+       onPressed: () {  },
+       child: Icon(Icons.add)
+     ,),
+     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+     bottomNavigationBar: BottomAppBar(
+       shape: CircularNotchedRectangle(),
+       notchMargin: 10,
+       child: Container(
+         height: 60,
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: <Widget> [
+             Row(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 MaterialButton(
+                   minWidth: 40,
+                   onPressed: () {},
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     children: [
+                       Container(
+                        margin: EdgeInsets.only(top: 8),
+                        child: RaisedButton(
+                          onPressed: () {  },
+                          child: Text('CATEGORIE'),
+                          color: Colors.purple,
+                          textColor: Colors.white,
+                        )
+                        
+                      )
+                      
+                     ],
+                   ),
+                   
+                   )
+                 ], 
+                 
+             )
+            
+           ]
+         ),
+       ),
+     )
     ); //scaffold
   }
 }
