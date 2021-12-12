@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 void main() => runApp(MaterialApp(
       home: Film(),
@@ -12,6 +11,7 @@ class Film extends StatefulWidget {
 
 class _FilmState extends State<Film> {
   get onPressed => null;
+  bool? isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class _FilmState extends State<Film> {
                                     SizedBox(
                                         width: MediaQuery.of(context).size.width * 0.001),
                                    Container(
-                                      child: Icon(MdiIcons.pencil, size: 30,)
+                                      child: Icon(Icons.mode, size: 30,)
                                     ),
                                   ],
                                 ),
@@ -98,7 +98,6 @@ class _FilmState extends State<Film> {
                                     ),
                                     SizedBox(
                                         width: MediaQuery.of(context).size.width * 0.001),
-                                   
                                   ],
                                 ),
                               ],
@@ -128,48 +127,52 @@ class _FilmState extends State<Film> {
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.width*0.23,
+                  height: MediaQuery.of(context).size.width*0.36,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ), //box
                   margin: EdgeInsets.all(20),
-                  child:Row(
+                  child:Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.all(30.0),
-                        child: Text(
-                                  'Monday',
-                                  style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 21.0,
-                                ), 
-                              ),
+                          margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.31),
+                          child: RaisedButton(
+                            onPressed: () {  },
+                            child: Text('ADD EXPIRTATION TIME'),
+                            color: Colors.blue[100],
+                            textColor: Colors.purple,
+                          ),
+                        ),
+                      
+                      Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(30.0),
+                            child: Text(
+                                      'Monday',
+                                      style: TextStyle(
+                                      color: Colors.purple,
+                                      fontSize: 21.0,
+                                    ), 
+                                  ),
+                          ),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.02),
+                          Container(
+                            margin: EdgeInsets.all(8.0),
+                            child: Text(
+                                      '18:30',
+                                      style: TextStyle(
+                                      color: Colors.purple,
+                                      fontSize: 21.0,
+                                    ), 
+                                  ),
+                          ),
+                           
+                        ],
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width*0.02),
-                      Container(
-                        margin: EdgeInsets.all(8.0),
-                        child: Text(
-                                  '18:30',
-                                  style: TextStyle(
-                                  color: Colors.purple,
-                                  fontSize: 21.0,
-                                ), 
-                              ),
-                      ),
-                       Container(
-                        margin: EdgeInsets.only(top: 8),
-                        child: RaisedButton(
-                          onPressed: () {  },
-                          child: Text('ADD EXPIRTATION TIME'),
-                          color: Colors.blue[100],
-                          textColor: Colors.purple,
-                        )
-                        
-                      )
                     ],
                   ),
-                 
                 ),
                 Container(
                   height: MediaQuery.of(context).size.width*0.40,
@@ -180,7 +183,6 @@ class _FilmState extends State<Film> {
                   margin: EdgeInsets.all(20),
                   child:Row(
                     children: [
-                     
                       SizedBox(width: MediaQuery.of(context).size.width*0.02),
                       Container(
                         margin: EdgeInsets.all(8.0),
@@ -193,8 +195,9 @@ class _FilmState extends State<Film> {
                                 ), 
                               ),
                       ),
-                      Row(children: [
-                        Container(
+                      Row(
+                        children: [
+                          Container(
                                       width: MediaQuery.of(context).size.width * 0.48,
                                       child: Text(
                                         "Saturday 12:30",
@@ -204,12 +207,21 @@ class _FilmState extends State<Film> {
                                         ), //textstyle
                                       ),
                                     ),
-                                    Container(
-                                      child: Icon(MdiIcons.checkCircle, size: 30,)
-                                    ),
-
-
-                      ],)
+                        
+                          Checkbox(
+                            value: isChecked,
+                            onChanged: (value) {
+                              setState(() {
+                                isChecked = value;
+                              });
+                            },
+                            checkColor: Colors.white,
+                            overlayColor: MaterialStateProperty.all(Colors.purple),
+                            fillColor: MaterialStateProperty.all(Colors.purple),
+                          ),
+                          
+                        ],
+                      ),
                        
                     ],
                   ),
@@ -230,10 +242,13 @@ class _FilmState extends State<Film> {
       
      floatingActionButton: FloatingActionButton(
        onPressed: () {  },
-       child: Icon(Icons.add)
+       backgroundColor: Colors.white,
+       child: Icon(Icons.add, color: Colors.blue,)
      ,),
      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-     bottomNavigationBar: BottomAppBar(
+     bottomNavigationBar: 
+     BottomAppBar(
+       color: Colors.blue[100],
        shape: CircularNotchedRectangle(),
        notchMargin: 10,
        child: Container(
@@ -242,29 +257,38 @@ class _FilmState extends State<Film> {
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: <Widget> [
              Row(
-               crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                  MaterialButton(
                    minWidth: 40,
                    onPressed: () {},
-                   child: Column(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       Container(
-                        margin: EdgeInsets.only(top: 8),
-                        child: RaisedButton(
-                          onPressed: () {  },
-                          child: Text('CATEGORIE'),
-                          color: Colors.purple,
-                          textColor: Colors.white,
-                        )
-                        
-                      )
-                      
-                     ],
+                   child: Container(
+                    margin: EdgeInsets.only(top: 8),
+                    child: RaisedButton(
+                      onPressed: () {  },
+                      child: Text('CATEGORIE'),
+                      color: Colors.purple,
+                      textColor: Colors.white,
+                    )
+                    
+                      ),
+                   
                    ),
+                 MaterialButton(
+                   minWidth: 40,
+                   onPressed: () {},
+                   child: Container(
+                    margin: EdgeInsets.only(top: 8,left:MediaQuery.of(context).size.width *0.34),
+                    child: RaisedButton(
+                      onPressed: () {  },
+                      child: Text('Cancel'),
+                      color: Colors.purple,
+                      textColor: Colors.white,
+                    )
+                    
+                      ),
                    
                    )
+                 
                  ], 
                  
              )
